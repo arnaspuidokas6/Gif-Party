@@ -16,7 +16,11 @@ module.exports = {
         colors: {
             transparent: 'transparent',
             current: 'currentColor',
-
+            brownSugar: '#be6e46',
+            teaGreen: '#cde7b0',
+            cambridgeBlue: '#a3bfa8',
+            shadowBlue: '#7286a0',
+            ebony: '#59594a',
             black: colors.black,
             white: colors.white,
             gray: colors.coolGray,
