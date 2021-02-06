@@ -20,7 +20,6 @@ export const GifsList: FC = () => {
             return fetchAndUpdateGifs();
         }
     }, []);
-
     return (
         <div className="px-4 sm:px-8 lg:px-16 xl:px-20 mx-auto">
             {gifsList?.length ? (
@@ -28,8 +27,8 @@ export const GifsList: FC = () => {
                     <Heading />
                     <SearchBar />
                     <div className="container mx-auto mt-20 grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
-                        {gifsList?.map(({ title, imageUrl }, index) => (
-                            <Card imageUrl={imageUrl} title={title} key={index} />
+                        {gifsList?.map((props, index) => (
+                            <Card {...props} key={index} />
                         ))}
                     </div>
                 </>

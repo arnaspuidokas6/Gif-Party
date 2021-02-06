@@ -7,6 +7,8 @@ export interface FetchGifsRequest {
 export interface IGifResponse {
     imageUrl: string;
     title: string;
+    userImage?: string;
+    displayName?: string;
 }
 
 interface IUrl {
@@ -17,8 +19,14 @@ interface IImage {
     fixed_height: IUrl;
 }
 
+interface IUser {
+    avatar_url?: string;
+    display_name?: string;
+}
+
 // https://developers.giphy.com/docs/api/schema/#gif-object
 export interface IGif {
     title?: string;
     images?: IImage;
+    user?: IUser;
 }

@@ -3,7 +3,12 @@ import { API_KEY } from './constants';
 import { FetchGifsRequest, IGif, IGifResponse } from './types';
 
 const createGif = (data: IGif): IGifResponse => {
-    return { title: data.title ?? '', imageUrl: data?.images?.fixed_height.url ?? '' };
+    return {
+        title: data.title ?? '',
+        imageUrl: data?.images?.fixed_height.url ?? '',
+        userImage: data?.user?.avatar_url ?? '',
+        displayName: data?.user?.display_name ?? '',
+    };
 };
 
 export const fetchGifs = async ({ query = 'happy', limit = '12' }: FetchGifsRequest): Promise<IGifResponse[]> => {
