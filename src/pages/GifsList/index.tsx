@@ -1,5 +1,4 @@
-import React, { FC, useState } from 'react';
-import { useEffect } from 'react';
+import React, { FC, useState, useEffect, SetStateAction } from 'react';
 import { fetchGifs } from '../../api/fetchGifs';
 import { IGifResponse } from '../../api/types';
 import { Card } from '../../components/Card';
@@ -10,31 +9,31 @@ import '../../tailwind.output.css';
 
 export const GifsList: FC = () => {
     const [gifsList, setGifsList] = useState<IGifResponse[]>();
+    const [searchValue, setSearchValue] = useState<string>('');
 
-    const fetchAndUpdateGifs = () => {
-        fetchGifs({}).then((newGifsList) => setGifsList(newGifsList));
+    const handleSearchChange = (event: { target: { value: SetStateAction<string> } }) => {
+        setSearchValue(event.target.value);
     };
 
     useEffect(() => {
-        if (!gifsList?.length) {
-            return fetchAndUpdateGifs();
-        }
-    }, []);
+        fetchGifs({ query: searchValue }).then((newGifsList) => setGifsList(newGifsList));
+    }, [searchValue]);
+
     return (
-        <div className="px-4 sm:px-8 lg:px-16 xl:px-20 mx-auto">
-            {gifsList?.length ? (
-                <>
-                    <Heading />
-                    <SearchBar />
-                    <div className="container mx-auto mt-20 grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
+        <div className="container mx-auto">
+            <Heading />
+            <SearchBar setSearchValue={handleSearchChange} />
+            <>
+                {gifsList?.length ? (
+                    <div className="mt-20 grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-4">
                         {gifsList?.map((props, index) => (
                             <Card {...props} key={index} />
                         ))}
                     </div>
-                </>
-            ) : (
-                <NoGifs />
-            )}
+                ) : (
+                    <NoGifs />
+                )}
+            </>
         </div>
     );
 };
