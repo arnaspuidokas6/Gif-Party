@@ -33,13 +33,17 @@ export const Modal: FC<IModal> = ({ toggleModal, selectedItem }) => {
                     </div>
                     <div className="px-4 py-2">
                         <div className="author flex items-center -ml-3 my-3 mt-4">
-                            <div className="user-logo">
-                                <img
-                                    className="w-12 h-12 object-cover rounded-full mx-4  shadow"
-                                    src={selectedItem?.userImage}
-                                    alt="avatar"
-                                />
-                            </div>
+                            {selectedItem?.userImage ? (
+                                <div className="user-logo">
+                                    <img
+                                        className="w-12 h-12 object-cover rounded-full mx-4  shadow"
+                                        src={selectedItem?.userImage}
+                                        alt="avatar"
+                                    />
+                                </div>
+                            ) : (
+                                <></>
+                            )}
                             <h2 className="text-sm tracking-tighter text-gray-900">
                                 <a href="#">{selectedItem?.displayName ?? 'No user name'}</a>{' '}
                                 <span className="text-gray-600 pl-5">
