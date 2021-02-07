@@ -7,6 +7,7 @@ import '../../tailwind.output.css';
 import debounce from 'lodash.debounce';
 import { DEFAULT_LIST_ITEMS, VALIDATION_PATTERN } from '../../api/constants';
 import { CardsList } from '../../components/CardsList';
+import { Modal } from '../../components/Modal';
 
 const DEBOUNCE_COUNT = 100;
 
@@ -15,6 +16,8 @@ export const GifsList: FC = () => {
     const [searchValue, setSearchValue] = useState<string>('');
     const [searchError, setSearchError] = useState<boolean>(false);
     const [gifsListLimit, setGifsListLimit] = useState<number>(DEFAULT_LIST_ITEMS);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const [selectedItem, setSelectedItem] = useState<any>();
 
     const handleSearchChange = (event: { target: { value: string } }) => {
         const typedValue = event.target.value;
@@ -42,11 +45,16 @@ export const GifsList: FC = () => {
             );
     }, [searchValue, gifsListLimit]);
 
+    const toggleModal = (value: IGifResponse) => setSelectedItem(value);
+
     return (
-        <div className="container mx-auto">
-            <Heading />
-            <SearchBar setSearchValue={handleSearchChange} isValid={!searchError} />
-            <CardsList cardsList={gifsList} />
-        </div>
+        <>
+            <div className="container mx-auto">
+                <Heading />
+                <SearchBar setSearchValue={handleSearchChange} isValid={!searchError} />
+                <CardsList cardsList={gifsList} toggleModal={toggleModal} />
+            </div>
+            <Modal toggleModal={toggleModal} selectedItem={selectedItem} />
+        </>
     );
 };

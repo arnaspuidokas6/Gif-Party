@@ -8,6 +8,7 @@ export interface IGifResponse {
     imageUrl: string;
     title: string;
     userImage?: string;
+    importedAt?: string;
     displayName?: string;
 }
 
@@ -29,4 +30,5 @@ export interface IGif {
     title?: string;
     images?: IImage;
     user?: IUser;
+    import_datetime?: string;
 }

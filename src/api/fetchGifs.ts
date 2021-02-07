@@ -2,12 +2,15 @@ import axios from 'axios';
 import { API_KEY, DEFAULT_LIST_ITEMS } from './constants';
 import { FetchGifsRequest, IGif, IGifResponse } from './types';
 
+const EMPTY_STRING = '';
+
 const createGif = (data: IGif): IGifResponse => {
     return {
-        title: data.title ?? '',
-        imageUrl: data?.images?.fixed_height.url ?? '',
-        userImage: data?.user?.avatar_url ?? '',
-        displayName: data?.user?.display_name ?? '',
+        title: data.title ?? EMPTY_STRING,
+        imageUrl: data?.images?.fixed_height.url ?? EMPTY_STRING,
+        userImage: data?.user?.avatar_url ?? EMPTY_STRING,
+        displayName: data?.user?.display_name ?? EMPTY_STRING,
+        importedAt: data?.import_datetime ?? EMPTY_STRING,
     };
 };
 
