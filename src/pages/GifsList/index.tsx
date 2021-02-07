@@ -1,18 +1,17 @@
 import React, { FC, useState, useEffect } from 'react';
 import { fetchGifs } from '../../api/fetchGifs';
 import { IGifResponse } from '../../api/types';
-import { Card } from '../../components/Card';
 import { Heading } from '../../components/Heading';
-import { NoGifs } from '../../components/NoGifs';
 import { SearchBar } from '../../components/SearchBar';
 import '../../tailwind.output.css';
 import debounce from 'lodash.debounce';
 import { DEFAULT_LIST_ITEMS, VALIDATION_PATTERN } from '../../api/constants';
+import { CardsList } from '../../components/CardsList';
 
 const DEBOUNCE_COUNT = 100;
 
 export const GifsList: FC = () => {
-    const [gifsList, setGifsList] = useState<IGifResponse[]>();
+    const [gifsList, setGifsList] = useState<IGifResponse[]>([]);
     const [searchValue, setSearchValue] = useState<string>('');
     const [searchError, setSearchError] = useState<boolean>(false);
     const [gifsListLimit, setGifsListLimit] = useState<number>(DEFAULT_LIST_ITEMS);
@@ -47,17 +46,7 @@ export const GifsList: FC = () => {
         <div className="container mx-auto">
             <Heading />
             <SearchBar setSearchValue={handleSearchChange} isValid={!searchError} />
-            <>
-                {gifsList?.length ? (
-                    <div className="mt-20 grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-4">
-                        {gifsList?.map((props, index) => (
-                            <Card {...props} key={index} />
-                        ))}
-                    </div>
-                ) : (
-                    <NoGifs />
-                )}
-            </>
+            <CardsList cardsList={gifsList} />
         </div>
     );
 };
