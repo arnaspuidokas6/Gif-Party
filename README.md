@@ -10,7 +10,7 @@ View the project live at [](https://gif-party.com)
 git clone https://github.com/arnasp13/IBM-task-1.git
 # or:  git clone git@github.com:arnasp13/IBM-task-1.git
 
-cd IBM-task-1.
+cd IBM-task-1
 
 yarn
 yarn start
