@@ -2,7 +2,6 @@ import React, { createContext, Dispatch, FC, SetStateAction, useContext } from '
 import { IGifResponse } from '../api/types';
 
 export const EMPTY_GIFS_LIST = [];
-export const IS_VALID = true;
 export const DEFAULT_SELECTED_ITEM = {} as IGifResponse;
 export const DEFAULT_OPEN_MODAL = false;
 const EMPTY_VOID = () => {};
