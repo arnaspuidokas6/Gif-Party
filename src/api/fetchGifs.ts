@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { API_KEY, DEFAULT_LIST_ITEMS } from './constants';
+import { GIPHY_API_KEY, DEFAULT_LIST_ITEMS } from './constants';
 import { FetchGifsRequest, IGif, IGifResponse } from './types';
 
 const EMPTY_STRING = '';
@@ -20,7 +20,7 @@ export const fetchGifs = async ({
 }: FetchGifsRequest): Promise<IGifResponse[]> => {
     const res: {
         data: { data: IGif[] };
-    } = await axios.get(`https://api.giphy.com/v1/gifs/search?q=${query}&limit=${limit}&api_key=${API_KEY}`);
+    } = await axios.get(`https://api.giphy.com/v1/gifs/search?q=${query}&limit=${limit}&api_key=${GIPHY_API_KEY}`);
 
     return res.data.data.map(createGif);
 };
