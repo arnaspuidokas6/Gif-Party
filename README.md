@@ -1,8 +1,8 @@
 ## Setup
 
 ```sh
-git clone https://github.com/arnasp13/Gif-Party.git
-# or:  git clone git@github.com:arnasp13/Gif-Party.git
+git clone https://github.com/arnaspuidokas6/Gif-Party.git
+# or:  git clone git@github.com:arnaspuidokas6/Gif-Party.git
 
 cd Gif-Party
 
@@ -12,7 +12,7 @@ yarn start
 
 ## Overview & Aftermath
 
-See the [`v1.0 overview & aftermath #1`](https://github.com/arnasp13/Gif-Party/issues/1)
+See the [`v1.0 overview & aftermath #1`](https://github.com/arnaspuidokas6/Gif-Party/issues/1)
 
 ---
 
