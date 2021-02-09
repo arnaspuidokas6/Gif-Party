@@ -1,16 +1,10 @@
-[![]()](https://gif-party.com)
-
-# [gif-party](https://gif-party.arnas.org)
-
-View the project live at [](https://gif-party.com)
-
 ## Setup
 
 ```sh
-git clone https://github.com/arnasp13/IBM-task-1.git
-# or:  git clone git@github.com:arnasp13/IBM-task-1.git
+git clone https://github.com/arnasp13/Gif-Party.git
+# or:  git clone git@github.com:arnasp13/Gif-Party.git
 
-cd IBM-task-1
+cd Gif-Party
 
 yarn
 yarn start
@@ -18,7 +12,7 @@ yarn start
 
 ## Overview & Aftermath
 
-See the [`v1.0 overview & aftermath #1`](https://github.com/arnasp13/IBM-task-1/issues/1)
+See the [`v1.0 overview & aftermath #1`](https://github.com/arnasp13/Gif-Party/issues/1)
 
 ---
 
