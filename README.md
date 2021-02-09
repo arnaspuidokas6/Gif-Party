@@ -1,6 +1,6 @@
 [![]()](https://gif-party.com)
 
-# [gif-party](https://gif-party.kipras.org)
+# [gif-party](https://gif-party.arnas.org)
 
 View the project live at [](https://gif-party.com)
 
