@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchBar should render 1`] = `
+<div>
+  <div
+    class="box pt-6"
+  >
+    <div
+      class="box-wrapper"
+    >
+      <div
+        class="bg-white rounded flex items-center w-full p-3 shadow-sm border border-gray-200"
+      >
+        <input
+          class="w-full pl-4 text-sm outline-none focus:outline-none bg-transparent"
+          data-testid="search-input"
+          name="query"
+          placeholder="Search for gifs"
+          type="search"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`runs the first test 1`] = `
+<div>
+  <div
+    class="box pt-6"
+  >
+    <div
+      class="box-wrapper"
+    >
+      <div
+        class="bg-white rounded flex items-center w-full p-3 shadow-sm border border-gray-200"
+      >
+        <input
+          class="w-full pl-4 text-sm outline-none focus:outline-none bg-transparent"
+          name="query"
+          placeholder="Search for gifs"
+          type="search"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

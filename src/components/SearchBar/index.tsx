@@ -6,6 +6,8 @@ interface ISearchBar {
     setSearchValue: Dispatch<SetStateAction<string>>;
 }
 
+export const ERROR_SEARCH = 'Invalid search value! Use only letters and numbers.'
+
 export const SearchBar: FC<ISearchBar> = ({ setSearchValue }) => {
     const [isValid, setValid] = useState<boolean>(true);
 
@@ -32,14 +34,15 @@ export const SearchBar: FC<ISearchBar> = ({ setSearchValue }) => {
                     <input
                         type="search"
                         name="query"
+                        data-testid="search-input"
                         onChange={handleSearchChange}
                         placeholder="Search for gifs"
                         className="w-full pl-4 text-sm outline-none focus:outline-none bg-transparent"
                     />
                 </div>
                 {!isValid ? (
-                    <span className="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
-                        Invalid search value! Use only letters and numbers.
+                    <span data-testid="invalid-value-message" className="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
+                    {ERROR_SEARCH}
                     </span>
                 ) : (
                     <></>
