@@ -1,26 +1,19 @@
-/* eslint-disable react/prop-types */
 import React, { FC } from 'react';
-import { IGifResponse } from '../../api/types';
+import { useGifsContext } from '../../pages';
 
-interface IModal {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    toggleModal: (value: any) => void;
-    selectedItem?: IGifResponse;
-}
-
-export const Modal: FC<IModal> = ({ toggleModal, selectedItem }) => {
-    console.log(selectedItem?.userImage);
+export const Modal: FC = () => {
+    const { setOpenModal, openModal, selectedItem } = useGifsContext();
     return (
-        <div className={`${selectedItem ? 'block' : 'hidden'} fixed bg-grayish w-full h-full top-0 left-0 bg-gray-200`}>
+        <div className={`${openModal ? 'block' : 'hidden'} fixed bg-grayish w-full h-full top-0 left-0 bg-gray-200`}>
             <div className="mx-auto px-4 py-8 max-w-xl my-20">
                 <div className="bg-white shadow-2xl rounded-xl mb-6 tracking-wide">
                     <div className="md:flex-shrink-0">
                         <img
-                            src={selectedItem?.imageUrl}
+                            src={selectedItem.imageUrl}
                             alt={selectedItem?.title}
                             className="w-full h-full rounded-lg rounded-b-none"
                         />
-                        <span className="absolute top-0 right-0 p-4 text-red-500" onClick={() => toggleModal(false)}>
+                        <span className="absolute top-0 right-0 p-4 text-red-500" onClick={() => setOpenModal(false)}>
                             <svg
                                 className="h-6 w-6 fill-current text-grey hover:text-grey-darkest"
                                 role="button"

@@ -1,42 +1,23 @@
 import React, { FC, useState, useEffect } from 'react';
-import { fetchGifs } from '../../api/fetchGifs';
 import { IGifResponse } from '../../api/types';
-import { Heading } from '../../components/Heading';
-import { SearchBar } from '../../components/SearchBar';
 import '../../tailwind.output.css';
-import debounce from 'lodash.debounce';
-import { DEFAULT_LIST_ITEMS, VALIDATION_PATTERN } from '../../api/constants';
+import { DEFAULT_LIST_ITEMS } from '../../api/constants';
+import { fetchGifs } from '../../api/fetchGifs';
 import { CardsList } from '../../components/CardsList';
+import { Heading } from '../../components/Heading';
 import { Modal } from '../../components/Modal';
-
-const DEBOUNCE_COUNT = 100;
+import { SearchBar } from '../../components/SearchBar';
+import { GifsListPage } from '..';
+import { loadMoreItems } from '../../tools/loadMoreItems';
 
 export const GifsList: FC = () => {
     const [gifsList, setGifsList] = useState<IGifResponse[]>([]);
     const [searchValue, setSearchValue] = useState<string>('');
-    const [searchError, setSearchError] = useState<boolean>(false);
     const [gifsListLimit, setGifsListLimit] = useState<number>(DEFAULT_LIST_ITEMS);
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const [selectedItem, setSelectedItem] = useState<any>();
+    const [selectedItem, setSelectedItem] = useState<IGifResponse>({} as IGifResponse);
+    const [openModal, setOpenModal] = useState<boolean>(false);
 
-    const handleSearchChange = (event: { target: { value: string } }) => {
-        const typedValue = event.target.value;
-
-        if (typedValue.match(VALIDATION_PATTERN)) {
-            setSearchError(true);
-            return;
-        }
-
-        setSearchError(false);
-        setSearchValue(typedValue);
-    };
-
-    window.onscroll = debounce(() => {
-        if (searchError) return;
-        if (window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight) {
-            setGifsListLimit((limit) => limit + DEFAULT_LIST_ITEMS);
-        }
-    }, DEBOUNCE_COUNT);
+    loadMoreItems({ setGifsListLimit });
 
     useEffect(() => {
         searchValue &&
@@ -45,16 +26,20 @@ export const GifsList: FC = () => {
             );
     }, [searchValue, gifsListLimit]);
 
-    const toggleModal = (value: IGifResponse) => setSelectedItem(value);
-
     return (
-        <>
+        <GifsListPage
+            setSelectedItem={setSelectedItem}
+            gifsList={gifsList}
+            selectedItem={selectedItem}
+            openModal={openModal}
+            setOpenModal={setOpenModal}
+        >
             <div className="container mx-auto">
                 <Heading />
-                <SearchBar setSearchValue={handleSearchChange} isValid={!searchError} />
-                <CardsList cardsList={gifsList} toggleModal={toggleModal} />
+                <SearchBar setSearchValue={setSearchValue} />
+                <CardsList />
             </div>
-            <Modal toggleModal={toggleModal} selectedItem={selectedItem} />
-        </>
+            <Modal />
+        </GifsListPage>
     );
 };
