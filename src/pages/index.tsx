@@ -15,7 +15,7 @@ interface IGifsContext {
     setOpenModal: Dispatch<SetStateAction<boolean>>;
 }
 
-const GifsListContext = createContext<IGifsContext>({
+export const GifsListContext = createContext<IGifsContext>({
     gifsList: EMPTY_GIFS_LIST,
     selectedItem: DEFAULT_SELECTED_ITEM,
     setSelectedItem: EMPTY_VOID,

@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cards List should show no gifs 1`] = `
+<div>
+  <h1
+    class="mt-20 font-bold text-3xl text-gray-900"
+    data-testid="no-gifs"
+  >
+    Sorry, no gifs :( try typing in search.
+  </h1>
+</div>
+`;

@@ -9,7 +9,7 @@ export const Modal: FC = () => {
                 <div className="bg-white shadow-2xl rounded-xl mb-6 tracking-wide">
                     <div className="md:flex-shrink-0">
                         <img
-                            src={selectedItem.imageUrl}
+                            src={selectedItem?.imageUrl}
                             alt={selectedItem?.title}
                             className="w-full h-full rounded-lg rounded-b-none"
                         />
