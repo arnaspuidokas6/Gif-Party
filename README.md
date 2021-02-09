@@ -22,4 +22,4 @@ See the [`v1.0 overview & aftermath #1`](https://github.com/arnasp13/IBM-task-1/
 
 ---
 
-© Arnas Puidokas — [@arnaasp13](https://github.com/arnasp13)
+© Arnas Puidokas — [@arnasp13](https://github.com/arnasp13)
