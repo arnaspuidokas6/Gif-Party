@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-
 import debounce from 'lodash.debounce';
 import { Dispatch, SetStateAction } from 'react';
 import { DEFAULT_LIST_ITEMS } from '../api/constants';
