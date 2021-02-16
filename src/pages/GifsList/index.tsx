@@ -20,10 +20,7 @@ export const GifsList: FC = () => {
     loadMoreItems({ setGifsListLimit });
 
     useEffect(() => {
-        searchValue &&
-            fetchGifs({ query: searchValue, limit: `${gifsListLimit}` }).then((newGifsList) =>
-                setGifsList(newGifsList),
-            );
+        fetchGifs({ query: searchValue, limit: `${gifsListLimit}` }).then((newGifsList) => setGifsList(newGifsList));
     }, [searchValue, gifsListLimit]);
 
     return (

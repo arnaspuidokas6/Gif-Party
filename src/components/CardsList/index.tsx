@@ -11,7 +11,7 @@ export const CardsList: FC = () => {
             {gifsList?.length ? (
                 <div className="mt-20 grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-4">
                     {gifsList?.map((props, index) => (
-                        <Card {...props} key={index} />
+                        <Card {...props} key={index} data-testid={`card-${index}`} />
                     ))}
                 </div>
             ) : (

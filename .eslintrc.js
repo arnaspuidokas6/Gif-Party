@@ -1,6 +1,5 @@
 module.exports = {
     parser: '@typescript-eslint/parser',
-    jest: true,
     parserOptions: {
         ecmaVersion: 2020,
         sourceType: 'module', // Allows for the use of imports

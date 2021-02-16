@@ -7,7 +7,7 @@ export const Card: FC<IGifResponse> = (props) => {
     const { setSelectedItem, setOpenModal } = useGifsContext();
     const { imageUrl, title, userImage, displayName } = props;
     return (
-        <div className="rounded-lg overflow-hidden">
+        <div className="rounded-lg overflow-hidden" data-testid={`gif-card`}>
             <div className="relative overflow-hidden pb-60">
                 <img
                     className="absolute h-full w-full object-cover object-center"

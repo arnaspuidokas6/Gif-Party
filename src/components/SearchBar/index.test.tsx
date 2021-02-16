@@ -5,18 +5,19 @@ import userEvent from '@testing-library/user-event';
 
 describe('SearchBar', () => {
     it('should render', () => {
-        const { container } = render(<SearchBar setSearchValue={() => {}} /> );
-        
-       expect(screen.getByTestId('search-input')).toBeVisible(); 
+        // eslint-disable-next-line @typescript-eslint/no-empty-function
+        const { container } = render(<SearchBar setSearchValue={() => {}} />);
+
+        expect(screen.getByTestId('search-input')).toBeVisible();
         expect(container).toMatchSnapshot();
     });
 
     test('if validation works', () => {
-      render(<SearchBar setSearchValue={() => {}} /> ); 
-      expect(screen.queryByTestId('invalid-value-message')).toBeNull();
+        // eslint-disable-next-line @typescript-eslint/no-empty-function
+        render(<SearchBar setSearchValue={() => {}} />);
+        expect(screen.queryByTestId('invalid-value-message')).toBeNull();
 
-      userEvent.type(screen.getByTestId('search-input'), '++++');
-      expect(screen.getByTestId('invalid-value-message')).toHaveTextContent(ERROR_SEARCH);
+        userEvent.type(screen.getByTestId('search-input'), '++++');
+        expect(screen.getByTestId('invalid-value-message')).toHaveTextContent(ERROR_SEARCH);
     });
-
-})
+});

@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card should match snapshot 1`] = `
+<div>
+  <div
+    class="container mx-auto"
+  >
+    <div
+      class="hero"
+    >
+      <div
+        class="hero-headline flex flex-col items-center justify-center pt-24 text-center"
+      >
+        <h1
+          class="font-bold text-3xl text-gray-900"
+        >
+          Wanna see some cool gifs? 🥺
+        </h1>
+        <p
+          class="font-base text-base text-gray-600"
+        >
+          use the search below and get them now 🏂
+        </p>
+      </div>
+    </div>
+    <div
+      class="box pt-6"
+    >
+      <div
+        class="box-wrapper"
+      >
+        <div
+          class="bg-white rounded flex items-center w-full p-3 shadow-sm border border-gray-200"
+        >
+          <input
+            class="w-full pl-4 text-sm outline-none focus:outline-none bg-transparent"
+            data-testid="search-input"
+            name="query"
+            placeholder="Search for gifs"
+            type="search"
+          />
+        </div>
+      </div>
+    </div>
+    <h1
+      class="mt-20 font-bold text-3xl text-gray-900"
+      data-testid="no-gifs"
+    >
+      Sorry, no gifs :( try typing in search.
+    </h1>
+  </div>
+  <div
+    class="hidden fixed bg-grayish w-full h-full top-0 left-0 bg-gray-200"
+  >
+    <div
+      class="mx-auto px-4 py-8 max-w-xl my-20"
+    >
+      <div
+        class="bg-white shadow-2xl rounded-xl mb-6 tracking-wide"
+      >
+        <div
+          class="md:flex-shrink-0"
+        >
+          <img
+            class="w-full h-full rounded-lg rounded-b-none"
+          />
+          <span
+            class="absolute top-0 right-0 p-4 text-red-500"
+          >
+            <svg
+              class="h-6 w-6 fill-current text-grey hover:text-grey-darkest"
+              role="button"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"
+              />
+            </svg>
+          </span>
+        </div>
+        <div
+          class="px-4 py-2"
+        >
+          <div
+            class="author flex items-center -ml-3 my-3 mt-4"
+          >
+            <h2
+              class="text-sm tracking-tighter text-gray-900"
+            >
+              <a
+                href="#"
+              >
+                No user name
+              </a>
+               
+              <span
+                class="text-gray-600 pl-5"
+              >
+                No import data
+              </span>
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
