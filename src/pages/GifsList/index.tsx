@@ -8,7 +8,7 @@ import { Heading } from '../../components/Heading';
 import { Modal } from '../../components/Modal';
 import { SearchBar } from '../../components/SearchBar';
 import { GifsListPage } from '..';
-import { loadMoreItems } from '../../tools/loadMoreItems';
+import debounce from 'lodash.debounce';
 
 export const GifsList: FC = () => {
     const [gifsList, setGifsList] = useState<IGifResponse[]>([]);
@@ -17,7 +17,11 @@ export const GifsList: FC = () => {
     const [selectedItem, setSelectedItem] = useState<IGifResponse>({} as IGifResponse);
     const [openModal, setOpenModal] = useState<boolean>(false);
 
-    loadMoreItems({ setGifsListLimit });
+    window.onscroll = debounce(() => {
+        if (window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight) {
+            setGifsListLimit((limit) => limit + DEFAULT_LIST_ITEMS);
+        }
+    }, 100);
 
     useEffect(() => {
         fetchGifs({ query: searchValue, limit: `${gifsListLimit}` }).then((newGifsList) => setGifsList(newGifsList));
